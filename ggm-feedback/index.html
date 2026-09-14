@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback &amp; Bug Reports | Grain &amp; Grit Machine</title>
+<meta name="description" content="Report a bug or send feedback on Grain &amp; Grit Machine. Your version and system details come through automatically.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/pages.css">
+
+</head>
+<body class="page-content">
+<canvas id="grainCanvas"></canvas>
+<div class="page">
+<nav class="site-nav">
+<a href="/" class="site-nav-brand">Grain &amp; Grit Machine</a>
+<div class="site-nav-links">
+<a href="/stocks/">Stocks</a>
+<a href="/field-notes/">Field Notes</a>
+<div class="nav-dropdown">
+<button class="nav-dropdown-toggle">Companion</button>
+<div class="nav-dropdown-menu">
+<a href="/companion/case-file/">The GGM Case File</a>
+<a href="/companion/viewfinder-overlays/">Viewfinder Overlays</a>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="cta-banner">
+<span class="cta-banner-text">Grain &amp; Grit Machine — $49 one-time</span>
+<a href="/#waitlist" class="cta-banner-link">Join waitlist</a>
+</div>
+
+
+
+
+<section class="mx rv" style="padding-top:clamp(70px,11vw,130px)">
+
+  <div class="label">Support</div>
+  <div class="rule" style="margin:12px 0 26px"></div>
+  <h1 class="h2">Something not right? <em>Tell us.</em></h1>
+  <p class="bt" style="max-width:56ch;margin:18px 0 0">
+    Bugs, odd renders, feature requests, or just a thought about how the machine
+    handles. It all reaches Tom directly. If you came here from inside the plugin,
+    your version and system details are already attached.
+  </p>
+
+  <div class="sp-md"></div>
+
+  <div class="fb-frame">
+    <iframe
+      id="tally-embed"
+      data-tally-src="https://tally.so/embed/gDEObD?dynamicHeight=1&amp;transparentBackground=1"
+      loading="lazy"
+      width="100%"
+      height="700"
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      title="Grain &amp; Grit Machine feedback form"></iframe>
+  </div>
+
+  <noscript>
+    <p class="bt" style="margin-top:18px">
+      <a href="https://tally.so/r/gDEObD" style="color:var(--amb)">Open the feedback form &rarr;</a>
+    </p>
+  </noscript>
+
+  <p class="fb-fallback">
+    Form not loading?
+    <a id="tally-direct" href="https://tally.so/r/gDEObD">Open it in a new tab &rarr;</a>
+  </p>
+
+  
+
+</section>
+
+<div class="sp-xl"></div>
+
+<style>
+/* ── /ggm-feedback ── */
+.fb-frame{
+  border:1px solid var(--lift);
+  background:var(--preview-wrap);
+  padding:4px;
+  max-width:720px;
+}
+.fb-frame iframe{display:block;width:100%;min-height:700px;border:0}
+.fb-fallback{
+  font-family:var(--font-body);
+  font-size:11px;
+  letter-spacing:1px;
+  color:var(--tm);
+  margin-top:16px;
+}
+.fb-fallback a{color:var(--amb);text-decoration:none}
+.fb-fallback a:hover{text-decoration:underline}
+.fb-call{
+  display:inline-block;
+  border:1px solid var(--amb);
+  color:var(--amb);
+  text-decoration:none;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  padding:14px 26px;
+}
+.fb-call:hover{background:var(--amb);color:var(--dk)}
+</style>
+
+<script>
+(function () {
+  var FORM_ID = 'gDEObD';
+  var iframe = document.getElementById('tally-embed');
+  var direct = document.getElementById('tally-direct');
+  if (!iframe) return;
+
+  var incoming = new URLSearchParams(window.location.search);
+
+  // Build the embed URL: our own params, then everything from the incoming URL.
+  var embed = new URL(iframe.getAttribute('data-tally-src'));
+  incoming.forEach(function (value, key) {
+    if (value !== '') embed.searchParams.set(key, value);
+  });
+
+  // Set BOTH: data-tally-src for Tally's embed.js, and src directly so the form
+  // still loads if embed.js is blocked (ad blockers, locked-down networks).
+  iframe.setAttribute('data-tally-src', embed.toString());
+  iframe.setAttribute('src', embed.toString());
+
+  // Keep the manual fallback link carrying the same info.
+  if (direct) {
+    var open = new URL('https://tally.so/r/' + FORM_ID);
+    incoming.forEach(function (value, key) {
+      if (value !== '') open.searchParams.set(key, value);
+    });
+    direct.href = open.toString();
+    direct.target = '_blank';
+    direct.rel = 'noopener';
+  }
+
+  // Own resize handler, so dynamic height works without embed.js too.
+  window.addEventListener('message', function (e) {
+    if (typeof e.origin === 'string' && e.origin.indexOf('tally.so') === -1) return;
+    var data = e.data;
+    if (typeof data === 'string') {
+      try { data = JSON.parse(data); } catch (err) { return; }
+    }
+    if (!data || typeof data !== 'object') return;
+    var h = data.height || (data.payload && data.payload.height);
+    if (h && (!data.formId || data.formId === FORM_ID)) {
+      iframe.style.height = parseInt(h, 10) + 'px';
+    }
+  });
+})();
+</script>
+<script async src="https://tally.so/widgets/embed.js"></script>
+
+<footer class="site-footer"><span>Pixel Basement · 2026</span><span>filmgrainplugin.com</span><span>Grain &amp; Grit Machine</span></footer>
+
+</div>
+<script src="/assets/js/grain.js"></script>
+<script src="/assets/js/reveal.js"></script>
+<script src="/assets/js/nav.js"></script>
+</body>
+</html>
