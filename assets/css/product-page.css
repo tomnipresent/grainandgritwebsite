@@ -999,3 +999,16 @@
   background: var(--sf);
   overflow: hidden;
 }
+
+/* Inventory strip icons (instant download / refund / support) */
+.inv-item .inv-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 27px; /* match the line-height of the numeral values */
+}
+.inv-item .inv-icon svg {
+  width: 19px;
+  height: 19px;
+  display: block;
+}
