@@ -1080,3 +1080,19 @@
     padding-bottom: 4px;
   }
 }
+
+/* ── Full-bleed video band (pattern break) ── */
+.video-band {
+  width: 100%;
+  border-top: 1px solid var(--l2);
+  border-bottom: 1px solid var(--l2);
+  background: var(--dk);
+}
+.video-band video {
+  display: block;
+  width: 100%;
+  height: auto;
+  /* Cap the band height on wide/short viewports; crops top+bottom evenly */
+  max-height: 64vh;
+  object-fit: cover;
+}
