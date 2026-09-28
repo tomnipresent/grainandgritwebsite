@@ -1053,16 +1053,14 @@
 }
 .hg-prev { left: 0; justify-content: flex-start; }
 .hg-next { right: 0; justify-content: flex-end; }
+/* Bare chevrons (chip version kept in git history if wanted for other products) */
 .hg-nav span {
   font-family: var(--font-body);
-  font-size: 24px;
+  font-size: 34px;
   line-height: 1;
-  padding: 8px 12px;
-  margin: 0 10px;
-  background: rgba(9, 10, 10, .7);
-  border: 1px solid var(--mid);
+  margin: 0 14px;
 }
-.hg-nav:hover span { border-color: var(--amb); color: var(--amb); }
+.hg-nav:hover span { color: var(--amb); }
 .hero-gallery-main:hover .hg-nav,
 .hg-nav:focus-visible { opacity: 1; }
 .hg-nav:focus { outline: none; }
