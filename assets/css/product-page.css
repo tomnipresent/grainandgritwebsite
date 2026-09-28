@@ -1012,3 +1012,73 @@
   height: 19px;
   display: block;
 }
+
+/* ══════════ HERO — responsive sizing + edge navigation ══════════ */
+
+/* The hero scales with the screen instead of capping at the page width.
+   ~1080px on a laptop, up to 1720px on large monitors. */
+.hero {
+  width: 100%;
+  max-width: clamp(1060px, 86vw, 1720px);
+  margin: 0 auto;
+  padding-left: clamp(16px, 3vw, 48px);
+  padding-right: clamp(16px, 3vw, 48px);
+}
+
+/* Info column grows a little with the viewport so the gallery gets most of the gain */
+@media (min-width: 901px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr) clamp(320px, 24vw, 400px);
+  }
+}
+
+/* Edge prev/next zones over the poster */
+.hg-nav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 14%;
+  min-width: 48px;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  color: var(--paper);
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+.hg-prev { left: 0; justify-content: flex-start; }
+.hg-next { right: 0; justify-content: flex-end; }
+.hg-nav span {
+  font-family: var(--font-body);
+  font-size: 24px;
+  line-height: 1;
+  padding: 8px 12px;
+  margin: 0 10px;
+  background: rgba(9, 10, 10, .7);
+  border: 1px solid var(--mid);
+}
+.hg-nav:hover span { border-color: var(--amb); color: var(--amb); }
+.hero-gallery-main:hover .hg-nav,
+.hg-nav:focus-visible { opacity: 1; }
+.hg-nav:focus { outline: none; }
+@media (hover: none) {
+  .hg-nav { opacity: .85; } /* touch: always visible */
+}
+
+/* Small screens: keep padding sane, let thumbs scroll instead of shrinking to slivers */
+@media (max-width: 640px) {
+  .hero-gallery-thumbs {
+    grid-auto-columns: minmax(84px, 1fr);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--l2) transparent;
+    padding-bottom: 4px;
+  }
+}

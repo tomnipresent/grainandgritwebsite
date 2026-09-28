@@ -7,13 +7,28 @@
   if (!slides.length) return;
 
   // — Thumbnail switching —
+  var current = 0;
   function show(i) {
+    current = i;
     slides.forEach(function (s, j) { s.classList.toggle('active', j === i); });
     thumbs.forEach(function (t, j) { t.classList.toggle('active', j === i); });
   }
 
   thumbs.forEach(function (thumb, i) {
     thumb.addEventListener('click', function () { show(i); });
+  });
+
+  // — Edge prev/next navigation —
+  function step(d) {
+    show((current + d + slides.length) % slides.length);
+  }
+  ['.hg-prev', '.hg-next'].forEach(function (sel, idx) {
+    var btn = gallery.querySelector(sel);
+    if (!btn) return;
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation(); // don't trigger the lightbox
+      step(idx === 0 ? -1 : 1);
+    });
   });
 
   // — Lightbox —
