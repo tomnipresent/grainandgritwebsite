@@ -158,13 +158,15 @@
 
 <div class="sp-xl"></div>
 
-<!-- UI-in-action loop — proof the claim above is real. Matches hero width, not full-bleed (the reel below owns that) -->
-<div class="mx-hero rv">
-<div class="proof-frame"><video autoplay loop muted playsinline preload="metadata" aria-label="Grain &amp; Grit Machine in action — adjusting shadow, mid, and highlight grain weighting in real time">
+<!-- UI-in-action loop — proof the claim above is real.
+     Full-width thin band. Tweak the crop/thinness via --band-h below
+     (taller value = less top/bottom crop; the video centre stays in view). -->
+<div class="video-band band-thin" style="--band-h:38vh">
+<video autoplay loop muted playsinline preload="metadata" aria-label="Grain &amp; Grit Machine in action — adjusting shadow, mid, and highlight grain weighting in real time">
 <source src="/assets/img/ggm-cropzoom.mp4" type="video/mp4">
-</video></div>
-<div class="cap">GGM v0.1 · dialling in luminance weighting · real-time</div>
+</video>
 </div>
+<div class="cap" style="text-align:center;margin-top:8px">GGM v0.1 · dialling in luminance weighting · real-time</div>
 
 <div class="sp-xl"></div>
 
