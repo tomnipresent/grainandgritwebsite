@@ -1096,3 +1096,12 @@
   max-height: 64vh;
   object-fit: cover;
 }
+
+/* Hero-width container: wider than page copy, narrower than full-bleed */
+.mx-hero {
+  width: 100%;
+  max-width: clamp(1060px, 86vw, 1720px);
+  margin: 0 auto;
+  padding-left: clamp(16px, 3vw, 48px);
+  padding-right: clamp(16px, 3vw, 48px);
+}
