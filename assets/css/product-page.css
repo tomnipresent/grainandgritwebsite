@@ -1112,3 +1112,68 @@
   max-height: none;
   object-fit: cover;
 }
+
+/* ── Sticky mini buy box ── */
+.buybox {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 900;
+  width: 216px;
+  background: var(--sf);
+  border: 1px solid var(--mid);
+  padding: 14px 16px 12px;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.buybox.show {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.buybox-name {
+  font-family: var(--font-headline);
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.buybox-name em { font-style: normal; color: var(--amb); }
+.buybox-price {
+  font-family: var(--font-headline);
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.buybox-price span {
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--tm);
+}
+.buybox-btn {
+  display: block;
+  background: var(--amb);
+  color: var(--dk);
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  padding: 11px;
+}
+.buybox-btn:hover { background: #f5be5e; }
+.buybox-sub {
+  font-size: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--tm);
+  text-align: center;
+  margin-top: 8px;
+}
+@media (max-width: 900px) {
+  .buybox { display: none; } /* mobile treatment comes with the mobile pass */
+}
