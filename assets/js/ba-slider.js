@@ -85,6 +85,7 @@
     requestAnimationFrame(function () { lightbox.classList.add('active'); });
 
     initBA(clone); // no onClick — clicking the big slider does nothing but slide
+    if (window.initBALoupes) window.initBALoupes(clone);
     clone.focus();
 
     lightbox.addEventListener('click', function (e) {

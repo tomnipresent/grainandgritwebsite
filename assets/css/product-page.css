@@ -1163,3 +1163,31 @@
 @media (max-width: 900px) {
   .buybox { display: none; } /* mobile treatment comes with the mobile pass */
 }
+
+/* ── Fixed loupes over the after image in BA sliders ── */
+.ba-loupe {
+  position: absolute;
+  width: clamp(110px, 22%, 260px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid var(--amb);
+  background-repeat: no-repeat;
+  background-color: var(--dk);
+  pointer-events: none;
+  z-index: 1; /* above the after img, below .ba-before-wrap in DOM order */
+}
+.ba-loupe[data-label]::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 50%;
+  bottom: -30px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: var(--font-body);
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--amb);
+  background: rgba(9, 10, 10, .8);
+  padding: 3px 8px;
+}
