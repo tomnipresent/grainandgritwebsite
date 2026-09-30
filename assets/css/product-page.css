@@ -1174,8 +1174,11 @@
   background-repeat: no-repeat;
   background-color: var(--dk);
   pointer-events: none;
-  z-index: 1; /* above the after img, below .ba-before-wrap in DOM order */
+  z-index: 1; /* above the after img */
 }
+/* The before layer (and divider/tags) must cover the loupes so the
+   divider wipes them in and out */
+.ba-before-wrap { z-index: 2; }
 .ba-loupe[data-label]::after {
   content: attr(data-label);
   position: absolute;
