@@ -6,19 +6,25 @@
   function initLoupes(ba) {
     var loupes = Array.prototype.slice.call(ba.querySelectorAll('.ba-loupe'));
     if (!loupes.length) return;
-    var img = ba.querySelector('img'); // first img = the after frame
-    if (!img) return;
+    var afterImg = ba.querySelector('img'); // first img = the after frame
+    var beforeWrap = ba.querySelector('.ba-before-wrap');
+    var beforeImg = beforeWrap ? beforeWrap.querySelector('img') : null;
+    if (!afterImg) return;
 
     function layout() {
       var w = ba.clientWidth, h = ba.clientHeight;
-      var nw = img.naturalWidth, nh = img.naturalHeight;
-      if (!w || !h || !nw || !nh) return;
-      // object-fit: cover geometry
-      var s = Math.max(w / nw, h / nh);
-      var drawnW = nw * s, drawnH = nh * s;
-      var offX = (w - drawnW) / 2, offY = (h - drawnH) / 2;
+      if (!w || !h) return;
 
       loupes.forEach(function (lp) {
+        // Loupes inside the before layer magnify the before image
+        var inBefore = beforeWrap && beforeWrap.contains(lp);
+        var img = (inBefore && beforeImg) ? beforeImg : afterImg;
+        var nw = img.naturalWidth, nh = img.naturalHeight;
+        if (!nw || !nh) return;
+        // object-fit: cover geometry
+        var s = Math.max(w / nw, h / nh);
+        var drawnW = nw * s, drawnH = nh * s;
+        var offX = (w - drawnW) / 2, offY = (h - drawnH) / 2;
         var fx = parseFloat(lp.getAttribute('data-x')) || 0.5;
         var fy = parseFloat(lp.getAttribute('data-y')) || 0.5;
         var z = parseFloat(lp.getAttribute('data-z')) || 3;
@@ -33,8 +39,11 @@
       });
     }
 
-    if (img.complete) layout();
-    else img.addEventListener('load', layout);
+    [afterImg, beforeImg].forEach(function (im) {
+      if (!im) return;
+      if (im.complete) layout();
+      else im.addEventListener('load', layout);
+    });
     window.addEventListener('resize', layout);
     // ResizeObserver catches container size changes (e.g. lightbox open)
     if ('ResizeObserver' in window) new ResizeObserver(layout).observe(ba);
