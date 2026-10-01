@@ -1224,3 +1224,38 @@
   /* Hero edge-nav chevrons a touch smaller on narrow frames */
   .hg-nav span { font-size: 26px; margin: 0 8px; }
 }
+
+/* Hero thumbs: quieter than the main frame on large screens */
+@media (min-width: 901px) {
+  .hero-gallery-thumbs {
+    width: 76%;
+    margin: 0 auto;
+  }
+  .hero-gallery-thumb {
+    opacity: .5;
+    transition: opacity .15s ease;
+  }
+  .hero-gallery-thumb:hover,
+  .hero-gallery-thumb.active {
+    opacity: 1;
+  }
+}
+
+/* Lightbox prev/next chevrons */
+.lb-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10000;
+  background: none;
+  border: none;
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: 44px;
+  line-height: 1;
+  padding: 18px 22px;
+  cursor: pointer;
+}
+.lb-nav:hover { color: var(--amb); }
+.lb-prev { left: 10px; }
+.lb-next { right: 10px; }

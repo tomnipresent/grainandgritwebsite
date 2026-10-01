@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Headline treatments — internal test</title>
+<meta name="description" content="Internal style test. Not linked.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/pages.css">
+
+</head>
+<body class="page-content">
+<canvas id="grainCanvas"></canvas>
+<div class="page">
+<nav class="site-nav">
+<a href="/" class="site-nav-brand">Grain &amp; Grit Machine</a>
+<div class="site-nav-links">
+<a href="/stocks/">Stocks</a>
+<a href="/field-notes/">Field Notes</a>
+<div class="nav-dropdown">
+<button class="nav-dropdown-toggle">Companion</button>
+<div class="nav-dropdown-menu">
+<a href="/companion/case-file/">The GGM Case File</a>
+<a href="/companion/viewfinder-overlays/">Viewfinder Overlays</a>
+</div>
+</div>
+</div>
+</nav>
+
+<div class="cta-banner">
+<span class="cta-banner-text">Grain &amp; Grit Machine — $49 one-time</span>
+<a href="/#waitlist" class="cta-banner-link">Join waitlist</a>
+</div>
+
+
+
+
+<style>
+.st-wrap { max-width: 860px; margin: 0 auto; padding: 60px 32px; }
+.st-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--amb); margin: 70px 0 6px; }
+.st-rationale { font-size: 11px; color: var(--tm); line-height: 1.6; max-width: 62ch; margin-bottom: 28px; }
+.st-h { font-family: var(--font-headline); font-weight: 500; font-size: clamp(22px, 3.6vw, 34px); line-height: 1.3; color: var(--paper); margin: 0 0 26px; }
+.st-rule { height: 1px; background: var(--l2); margin: 50px 0 0; }
+
+/* A — chip-block highlight (poster idiom) */
+.hl-chip { background: var(--amb); color: var(--dk); padding: 1px 12px 2px; font-style: normal; }
+
+/* B — plain paper, italic only */
+.hl-plain { font-style: italic; color: var(--paper); }
+
+/* C — amber full stop + italic emphasis */
+.hl-c em { font-style: italic; color: var(--paper); }
+.hl-dot { color: var(--amb); }
+</style>
+
+<div class="st-wrap">
+<h1 class="st-h" style="font-size:18px">Headline treatment test</h1>
+<p class="st-rationale">Same five headings, three treatments. View at desktop and phone width before judging. Current live treatment (amber italic words) intentionally not shown — this is about replacements.</p>
+
+<div class="st-label">A · Chip block</div>
+<p class="st-rationale">The poster idiom brought to the page: emphasis words sit in an amber block with darkroom text, exactly like the MACHINE bar on the hero posters. Ownable, print-flavoured, impossible to mistake for default AI styling. Costs: heavier, so it must be rationed to one or two moments per page.</p>
+<h2 class="st-h">Grain rendered <span class="hl-chip">from your image.</span><br>Not pasted on top.</h2>
+<h2 class="st-h">Same frame. <span class="hl-chip">Look closer.</span></h2>
+<h2 class="st-h">The grain follows <span class="hl-chip">the light.</span></h2>
+<h2 class="st-h">Point and shoot, <span class="hl-chip">or get your hands dirty.</span></h2>
+<h2 class="st-h">Here it is. <span class="hl-chip">The whole machine.</span></h2>
+<div class="st-rule"></div>
+
+<div class="st-label">B · Plain paper</div>
+<p class="st-rationale">No colour emphasis at all; italics carry the stress. Quietest and most confident — the copy does the work. Risk: scanning readers lose the landing points, and the page leans harder on layout for rhythm.</p>
+<h2 class="st-h">Grain rendered <span class="hl-plain">from your image.</span><br>Not pasted on top.</h2>
+<h2 class="st-h">Same frame. <span class="hl-plain">Look closer.</span></h2>
+<h2 class="st-h">The grain follows <span class="hl-plain">the light.</span></h2>
+<h2 class="st-h">Point and shoot, <span class="hl-plain">or get your hands dirty.</span></h2>
+<h2 class="st-h">Here it is. <span class="hl-plain">The whole machine.</span></h2>
+<div class="st-rule"></div>
+
+<div class="st-label">C · The amber full stop</div>
+<p class="st-rationale">Headings go all paper with italic stress, and the terminal full stop turns amber. Rationale: the site already ends every heading with a hard period — making that period the brand mark claims a micro-signature no template uses, keeps headings clean at any length, and the amber survives as punctuation rather than decoration. Reads subtle at small sizes, unmistakable at hero sizes.</p>
+<h2 class="st-h hl-c">Grain rendered <em>from your image</em><span class="hl-dot">.</span><br>Not pasted on top<span class="hl-dot">.</span></h2>
+<h2 class="st-h hl-c">Same frame. <em>Look closer</em><span class="hl-dot">.</span></h2>
+<h2 class="st-h hl-c">The grain follows <em>the light</em><span class="hl-dot">.</span></h2>
+<h2 class="st-h hl-c">Point and shoot, <em>or get your hands dirty</em><span class="hl-dot">.</span></h2>
+<h2 class="st-h hl-c">Here it is. <em>The whole machine</em><span class="hl-dot">.</span></h2>
+<div class="st-rule"></div>
+
+<p class="st-rationale" style="margin-top:40px">Mix note: these aren't mutually exclusive. A likely winner is C as the page default with A reserved for the single biggest claim (the "Grain rendered from your image" moment), which keeps the chip special.</p>
+</div>
+
+<footer class="site-footer"><span>Pixel Basement · 2026</span><span>filmgrainplugin.com</span><span>Grain &amp; Grit Machine</span></footer>
+
+</div>
+<script src="/assets/js/grain.js"></script>
+<script src="/assets/js/reveal.js"></script>
+<script src="/assets/js/nav.js"></script>
+</body>
+</html>

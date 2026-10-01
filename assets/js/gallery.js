@@ -34,6 +34,20 @@
   // — Lightbox —
   var lightbox = null;
 
+  // Cycle to the next/prev image slide (skips the before/after slider slide)
+  function cycle(d) {
+    var n = current;
+    do {
+      n = (n + d + slides.length) % slides.length;
+    } while (slides[n].querySelector('.ba') && n !== current);
+    show(n);
+    if (lightbox) {
+      var img = slides[n].querySelector('img');
+      var lbImg = lightbox.querySelector('.lightbox-img');
+      if (img && lbImg) { lbImg.src = img.src; lbImg.alt = img.alt || ''; }
+    }
+  }
+
   function openLightbox() {
     var activeSlide = gallery.querySelector('.hero-slide.active');
     if (!activeSlide) return;
@@ -47,6 +61,8 @@
     if (img && img.style.display !== 'none') {
       lightbox.innerHTML =
         '<button class="lightbox-close">ESC</button>' +
+        '<button class="lb-nav lb-prev" type="button" aria-label="Previous image">&#8249;</button>' +
+        '<button class="lb-nav lb-next" type="button" aria-label="Next image">&#8250;</button>' +
         '<img src="' + img.src + '" alt="' + (img.alt || '') + '" class="lightbox-img">';
     } else {
       lightbox.innerHTML =
@@ -56,6 +72,15 @@
 
     document.body.appendChild(lightbox);
     requestAnimationFrame(function () { lightbox.classList.add('active'); });
+
+    ['.lb-prev', '.lb-next'].forEach(function (sel, idx) {
+      var btn = lightbox.querySelector(sel);
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        cycle(idx === 0 ? -1 : 1);
+      });
+    });
 
     lightbox.addEventListener('click', closeLightbox);
     document.addEventListener('keydown', onEscape);
@@ -73,6 +98,8 @@
 
   function onEscape(e) {
     if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') cycle(-1);
+    if (e.key === 'ArrowRight') cycle(1);
   }
 
   gallery.addEventListener('click', openLightbox);
