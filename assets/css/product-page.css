@@ -843,7 +843,17 @@
   color: var(--paper);
   margin: 0 0 20px;
 }
-.claim-hero h2 em { color: var(--amb); font-style: italic; }
+.claim-hero h2 em { color: var(--paper); font-style: italic; }
+
+/* Chip-block heading highlight — the poster bar idiom. Ration it. */
+.hl-chip {
+  background: var(--amb);
+  color: var(--dk);
+  font-style: normal;
+  display: inline-block;
+  padding: 2px 16px 4px;
+  margin-top: 8px;
+}
 .claim-hero .claim-sub {
   font-family: var(--font-body);
   font-size: clamp(12px, 1.4vw, 14px);

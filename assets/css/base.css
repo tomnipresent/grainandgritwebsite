@@ -86,8 +86,8 @@ body {
 }
 
 .h2 em {
-  font-style: normal;
-  color: var(--amb);
+  font-style: italic;
+  color: var(--paper);
 }
 
 .h3 {
