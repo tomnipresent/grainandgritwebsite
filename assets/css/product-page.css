@@ -279,7 +279,7 @@
 
 .hero-name em {
   font-style: normal;
-  color: var(--amb);
+  color: var(--paper);
 }
 
 .hero-tagline {
@@ -843,7 +843,7 @@
   color: var(--paper);
   margin: 0 0 20px;
 }
-.claim-hero h2 em { color: var(--paper); font-style: italic; }
+.claim-hero h2 em { color: var(--paper); font-style: normal; }
 
 /* Chip-block heading highlight — the poster bar idiom. Ration it.
    inline + box-decoration-break:clone = each wrapped line gets its own bar. */
