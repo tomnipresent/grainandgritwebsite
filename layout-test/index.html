@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layout test — poster-first hero</title>
+<meta name="description" content="Internal layout test. Not linked.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<link rel="stylesheet" href="/assets/css/base.css">
+<link rel="stylesheet" href="/assets/css/components.css">
+<link rel="stylesheet" href="/assets/css/pages.css">
+<link rel="stylesheet" href="/assets/css/product-page.css">
+
+</head>
+<body>
+<canvas id="grainCanvas"></canvas>
+<div class="page">
+<nav class="site-nav">
+<a href="/" class="site-nav-brand">Grain &amp; Grit Machine</a>
+<div class="site-nav-links">
+<a href="/stocks/">Stocks</a>
+<a href="/field-notes/">Field Notes</a>
+<div class="nav-dropdown">
+<button class="nav-dropdown-toggle">Companion</button>
+<div class="nav-dropdown-menu">
+<a href="/companion/case-file/">The GGM Case File</a>
+<a href="/companion/viewfinder-overlays/">Viewfinder Overlays</a>
+</div>
+</div>
+</div>
+</nav>
+
+
+
+
+<style>
+.lt-hero { padding-top: clamp(32px, 4vw, 56px); }
+.lt-buy {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: clamp(32px, 5vw, 80px);
+  align-items: start;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: clamp(32px, 4vw, 56px) 32px 0;
+}
+@media (max-width: 900px) {
+  .lt-buy { grid-template-columns: 1fr; }
+}
+</style>
+
+<!-- ── Poster-first hero: gallery spans the hero width, no side column ── -->
+<section class="hero lt-hero">
+<div class="hero-gallery">
+<div class="hero-gallery-main" id="heroGallery">
+<div class="hero-slide active" data-i="0">
+<img src="/assets/img/hero/hero-1.jpg" alt="Grain &amp; Grit Machine — hero image 1" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+<div class="ph" style="display:none;position:absolute;inset:0"><div class="ph-t"><strong>HERO 1</strong></div></div>
+</div>
+
+<div class="hero-slide" data-i="1">
+<img src="/assets/img/hero/hero-2.jpg" alt="Grain &amp; Grit Machine — hero image 2" style="width:100%;height:100%;object-fit:cover" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+<div class="ph" style="display:none;position:absolute;inset:0"><div class="ph-t"><strong>HERO 2</strong></div></div>
+</div>
+
+<div class="hero-slide" data-i="2">
+<img src="/assets/img/hero/hero-3.jpg" alt="Grain &amp; Grit Machine — hero image 3" style="width:100%;height:100%;object-fit:cover" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+<div class="ph" style="display:none;position:absolute;inset:0"><div class="ph-t"><strong>HERO 3</strong></div></div>
+</div>
+
+<div class="hero-slide" data-i="3">
+<img src="/assets/img/hero/hero-4.jpg" alt="Grain &amp; Grit Machine — hero image 4" style="width:100%;height:100%;object-fit:cover" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+<div class="ph" style="display:none;position:absolute;inset:0"><div class="ph-t"><strong>HERO 4</strong></div></div>
+</div>
+
+<div class="hero-slide" data-i="4">
+<div class="ba" id="heroBA" role="slider" aria-label="Before and after comparison — drag to reveal grain" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+<img src="/assets/img/hero/hero-ba-after.jpg" alt="With Grain &amp; Grit Machine" loading="lazy">
+<div class="ba-before-wrap"><img src="/assets/img/hero/hero-ba-before.jpg" alt="Before grain" loading="lazy"></div>
+<div class="ba-divider"><div class="ba-handle">&#9666; drag &#9656;</div></div>
+<span class="ba-tag ba-tag-l">Before</span>
+<span class="ba-tag ba-tag-r">GGM</span>
+</div>
+</div>
+<div class="hero-slide" data-i="5">
+<img src="/assets/img/hero/hero-5.jpg" alt="Grain &amp; Grit Machine — hero image 5" style="width:100%;height:100%;object-fit:cover" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+<div class="ph" style="display:none;position:absolute;inset:0"><div class="ph-t"><strong>HERO 5</strong></div></div>
+</div>
+
+<button class="hg-nav hg-prev" type="button" aria-label="Previous image"><span>&#8249;</span></button>
+<button class="hg-nav hg-next" type="button" aria-label="Next image"><span>&#8250;</span></button>
+</div>
+<div class="hero-gallery-thumbs">
+<div class="hero-gallery-thumb active" data-i="0" style="position:relative;overflow:hidden">
+<img src="/assets/img/hero/hero-1.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy">
+</div>
+
+<div class="hero-gallery-thumb" data-i="1" style="position:relative;overflow:hidden">
+<img src="/assets/img/hero/hero-2.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy">
+</div>
+
+<div class="hero-gallery-thumb" data-i="2" style="position:relative;overflow:hidden">
+<img src="/assets/img/hero/hero-3.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy">
+</div>
+
+<div class="hero-gallery-thumb" data-i="3" style="position:relative;overflow:hidden">
+<img src="/assets/img/hero/hero-4.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy">
+</div>
+
+<div class="hero-gallery-thumb" data-i="4" style="position:relative;overflow:hidden">
+<img src="/assets/img/hero/hero-ba-after.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy">
+</div>
+<div class="hero-gallery-thumb" data-i="5" style="position:relative;overflow:hidden">
+<img src="/assets/img/hero/hero-5.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy">
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ── Buy section beneath the poster ── -->
+<div class="lt-buy">
+<div>
+<div class="hero-brand">from Pixel Basement</div>
+<h1 class="hero-name">Grain &amp; Grit <em>Machine</em></h1>
+<p class="hero-tagline">Film grain that reads your footage. Put real film behaviour and crafted imperfection straight onto your clips inside Premiere and After Effects.</p>
+</div>
+<div>
+<div class="hero-price-row"><div class="hero-price">$49</div></div>
+<a href="https://pixelbasement.lemonsqueezy.com/checkout/buy/0a48fcc9-ee83-4ce2-936d-01352f2ac85f" class="hero-btn">Buy now &middot; $49</a>
+<div class="hero-guarantee">Risk-free &middot; full refund if it's not what you expected</div>
+<div class="hero-meta">
+<div class="hero-meta-item"><span>Compatibility</span><span>Premiere &middot; AE</span></div>
+<div class="hero-meta-item"><span>Platform</span><span>macOS &middot; Windows</span></div>
+<div class="hero-meta-item"><span>Licence</span><span>Perpetual &middot; pay once</span></div>
+<div class="hero-meta-item"><span>Includes</span><span>Plugin + standalone app</span></div>
+</div>
+</div>
+</div>
+
+<div class="sp-md"></div>
+
+<!-- Inventory strip for context of how it flows on -->
+<div class="inv-strip">
+<div class="inv-item"><strong>13</strong>Film stocks</div>
+<div class="inv-item"><strong>14</strong>Imperfection textures</div>
+<div class="inv-item"><strong>GPU</strong>Real-time preview</div>
+</div>
+
+<div class="sp-xl"></div>
+
+<footer class="site-footer"><span>Pixel Basement · 2026</span><span>filmgrainplugin.com</span><span>Grain &amp; Grit Machine</span></footer>
+
+</div>
+<script src="/assets/js/grain.js"></script>
+<script src="/assets/js/reveal.js"></script>
+<script src="/assets/js/faq.js"></script>
+<script src="/assets/js/nav.js"></script>
+<script src="/assets/js/gallery.js"></script>
+<script src="/assets/js/results.js"></script>
+<script src="/assets/js/scroll-drag.js"></script>
+<script src="/assets/js/compare-lightbox.js"></script>
+<script src="/assets/js/ba-slider.js"></script>
+<script src="/assets/js/ba-loupes.js"></script>
+<script src="/assets/js/magnifier.js"></script>
+<script src="/assets/js/waitlist.js"></script>
+<script src="/assets/js/buybox.js"></script>
+<script src="/assets/js/video-keepalive.js"></script>
+</body>
+</html>
