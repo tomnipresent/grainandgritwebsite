@@ -838,21 +838,23 @@
 .claim-hero h2 {
   font-family: var(--font-headline);
   font-weight: 400;
-  font-size: clamp(28px, 5vw, 52px);
-  line-height: 1.15;
+  font-size: clamp(22px, 3.6vw, 42px);
+  line-height: 1.5; /* roomier so stacked chip bars separate cleanly */
   color: var(--paper);
   margin: 0 0 20px;
 }
 .claim-hero h2 em { color: var(--paper); font-style: italic; }
 
-/* Chip-block heading highlight — the poster bar idiom. Ration it. */
+/* Chip-block heading highlight — the poster bar idiom. Ration it.
+   inline + box-decoration-break:clone = each wrapped line gets its own bar. */
 .hl-chip {
   background: var(--amb);
   color: var(--dk);
   font-style: normal;
-  display: inline-block;
+  display: inline;
   padding: 2px 16px 4px;
-  margin-top: 8px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 .claim-hero .claim-sub {
   font-family: var(--font-body);
