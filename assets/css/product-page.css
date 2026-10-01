@@ -852,9 +852,14 @@
   color: var(--dk);
   font-style: normal;
   display: inline;
-  padding: 2px 16px 4px;
+  padding: 0 14px 1px; /* thin bars: text height + a hair */
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+}
+/* Any heading carrying chips needs looser lines so the bars gap cleanly */
+h1:has(.hl-chip),
+h2:has(.hl-chip) {
+  line-height: 1.75;
 }
 .claim-hero .claim-sub {
   font-family: var(--font-body);
