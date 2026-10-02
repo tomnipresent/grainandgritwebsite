@@ -1244,10 +1244,6 @@ h2:has(.hl-chip) {
 
 /* Hero thumbs: quieter than the main frame on large screens */
 @media (min-width: 901px) {
-  .hero-gallery-thumbs {
-    width: 76%;
-    margin: 0 auto;
-  }
   .hero-gallery-thumb {
     opacity: .5;
     transition: opacity .15s ease;
