@@ -222,6 +222,14 @@
 <footer class="site-footer"><span>Pixel Basement · 2026</span><span>filmgrainplugin.com</span><span>Grain &amp; Grit Machine</span></footer>
 
 </div>
+<script>
+// TEMP look test: append ?bg=surface to the URL to preview the whole page
+// on the surface grey instead of darkroom black. No param = no change.
+if (location.search.indexOf('bg=surface') > -1) {
+  document.documentElement.style.setProperty('--dk', '#191D1B');
+  document.documentElement.style.setProperty('--sf', '#232826');
+}
+</script>
 <script src="/assets/js/grain.js"></script>
 <script src="/assets/js/reveal.js"></script>
 <script src="/assets/js/faq.js"></script>

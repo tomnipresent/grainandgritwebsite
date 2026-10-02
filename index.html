@@ -154,7 +154,7 @@
 -->
 <section class="mx-w rv claim-hero">
 <div class="rule"></div>
-<h2><span class="hl-chip">Grain rendered from your image.</span><br><span class="hl-chip">Not pasted on top.</span></h2>
+<h2>Grain rendered from your image.<br>Not pasted on top.</h2>
 <p class="claim-sub">Overlays put the same texture on your shadows as your highlights, floating on top of the image. Grain &amp; Grit Machine computes grain per-pixel from the light in your footage, using emulsion data measured from real film stocks. It looks like film because it behaves like film.</p>
 </section>
 
@@ -428,7 +428,7 @@
 <div class="label">Pricing</div><div class="rule"></div>
 <div class="pricing-section">
 <div class="pricing-context">
-<h2 class="h2"><span class="hl-chip">Here it is.</span><br><span class="hl-chip">The whole machine.</span></h2>
+<h2 class="h2">Here it is.<br>The whole machine.</h2>
 <p class="bt">Film grain, imperfection and camera behaviour in one instrument, for Premiere and After Effects.</p>
 <p class="bt">Pay once, own it. Every v1.x update included, no subscription.</p>
 </div>
@@ -493,6 +493,14 @@
 <footer class="site-footer"><span>Pixel Basement · 2026</span><span>filmgrainplugin.com</span><span>Grain &amp; Grit Machine</span></footer>
 
 </div>
+<script>
+// TEMP look test: append ?bg=surface to the URL to preview the whole page
+// on the surface grey instead of darkroom black. No param = no change.
+if (location.search.indexOf('bg=surface') > -1) {
+  document.documentElement.style.setProperty('--dk', '#191D1B');
+  document.documentElement.style.setProperty('--sf', '#232826');
+}
+</script>
 <script src="/assets/js/grain.js"></script>
 <script src="/assets/js/reveal.js"></script>
 <script src="/assets/js/faq.js"></script>
